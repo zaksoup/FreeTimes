@@ -23,6 +23,7 @@
 		3128219017AC9C9C0092E68D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3128218E17AC9C9C0092E68D /* InfoPlist.strings */; };
 		3128219217AC9C9C0092E68D /* FreeTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3128219117AC9C9C0092E68D /* FreeTimesTests.m */; };
 		3128219D17ACA1850092E68D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3128219C17ACA1850092E68D /* Main.storyboard */; };
+		316F664A17AD6A9D00D7B683 /* FTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316F664917AD6A9D00D7B683 /* FTMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		3128218F17AC9C9C0092E68D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3128219117AC9C9C0092E68D /* FreeTimesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeTimesTests.m; sourceTree = "<group>"; };
 		3128219C17ACA1850092E68D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		316F664817AD6A9D00D7B683 /* FTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTMainViewController.h; sourceTree = "<group>"; };
+		316F664917AD6A9D00D7B683 /* FTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 			children = (
 				3128217717AC9C9C0092E68D /* FTAppDelegate.h */,
 				3128217817AC9C9C0092E68D /* FTAppDelegate.m */,
+				316F664817AD6A9D00D7B683 /* FTMainViewController.h */,
+				316F664917AD6A9D00D7B683 /* FTMainViewController.m */,
 				3128219C17ACA1850092E68D /* Main.storyboard */,
 				3128217D17AC9C9C0092E68D /* Images.xcassets */,
 				3128217A17AC9C9C0092E68D /* FreeTimes.xcdatamodeld */,
@@ -256,6 +261,7 @@
 				3128217917AC9C9C0092E68D /* FTAppDelegate.m in Sources */,
 				3128217C17AC9C9C0092E68D /* FreeTimes.xcdatamodeld in Sources */,
 				3128217517AC9C9C0092E68D /* main.m in Sources */,
+				316F664A17AD6A9D00D7B683 /* FTMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

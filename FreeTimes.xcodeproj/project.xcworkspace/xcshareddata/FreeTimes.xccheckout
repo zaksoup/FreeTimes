@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>BE0935C6-5A42-439D-AB1A-126FE945C151</string>
+	<string>B00C4F30-A5D3-4C69-BDAA-5CDD015F22FC</string>
 	<key>IDESourceControlProjectName</key>
 	<string>FreeTimes</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>162EB255-7AB1-41F4-B11C-18430C7F8082</key>
-		<string>https://github.com/7Bux/FreeTimes.git</string>
+		<key>9FF4793A-2524-477E-B4B1-7FDF0922813A</key>
+		<string>https://github.com/zaksoup/FreeTimes.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>FreeTimes.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>162EB255-7AB1-41F4-B11C-18430C7F8082</key>
+		<key>9FF4793A-2524-477E-B4B1-7FDF0922813A</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/7Bux/FreeTimes.git</string>
+	<string>https://github.com/zaksoup/FreeTimes.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>162EB255-7AB1-41F4-B11C-18430C7F8082</string>
+	<string>9FF4793A-2524-477E-B4B1-7FDF0922813A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>162EB255-7AB1-41F4-B11C-18430C7F8082</string>
+			<string>9FF4793A-2524-477E-B4B1-7FDF0922813A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>FreeTimes</string>
 		</dict>
