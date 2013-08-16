@@ -45,6 +45,7 @@
             break;
         case 4:
             self.title = @"List Three";
+            break;
         default:
             self.title = @"Default";
             break;

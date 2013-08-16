@@ -18,4 +18,9 @@
     return self;
 }
 
+- (NSUInteger)addItem:(FTListItem *)item {
+    [self.items addObject:item];
+    return [self.items indexOfObject:item];
+}
+
 @end

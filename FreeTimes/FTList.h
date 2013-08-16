@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FTListItem.h"
 
 @interface FTList : NSObject
+
+- (NSUInteger)addItem:(FTListItem *)item;
 
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) NSNumber *glyph;
