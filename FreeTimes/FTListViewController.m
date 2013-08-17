@@ -93,9 +93,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)itemViewController:(FTItemViewController *)controller didFinishAddingItem:(FTListItem *)item {
+    [self.list.items addObject:item];
+}
+
+- (void)itemViewController:(FTItemViewController *)controller didFinishEditingItem:(FTListItem *)item {
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UINavigationController *navigationController = segue.destinationViewController;
     FTItemViewController *controller = (FTItemViewController *)navigationController.topViewController;
+    
     controller.delegate = self;
 }
 

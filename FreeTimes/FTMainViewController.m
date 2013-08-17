@@ -48,9 +48,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     UINavigationController *navigationController = segue.destinationViewController;
     FTListViewController *controller = (FTListViewController *)navigationController.topViewController;
+    
     UIButton *button = (UIButton *)sender;
+    
     controller.label = button.tag;
     controller.delegate = self;
     //I'm sure this is not the best way to do this.

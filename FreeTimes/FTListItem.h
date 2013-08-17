@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL hidden;
-@property (nonatomic, assign) int time;
+@property (nonatomic, strong) NSNumber *time;
 
 @end

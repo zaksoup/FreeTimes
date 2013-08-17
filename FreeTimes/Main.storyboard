@@ -212,6 +212,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="Sk0-lv-ltB" id="e69-Dy-vVj"/>
                         <outlet property="itemName" destination="r0m-su-uTR" id="GeT-ZO-Ske"/>
                         <outlet property="itemTime" destination="g6j-WF-B6c" id="Er7-xV-qRv"/>
                     </connections>
