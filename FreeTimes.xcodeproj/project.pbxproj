@@ -27,6 +27,7 @@
 		3146C3E717BEBA9400E3844D /* FTListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3146C3E617BEBA9400E3844D /* FTListViewController.m */; };
 		316F664A17AD6A9D00D7B683 /* FTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316F664917AD6A9D00D7B683 /* FTMainViewController.m */; };
 		31E1B92E17BEDD9D005317A8 /* FTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1B92D17BEDD9D005317A8 /* FTListItem.m */; };
+		31E1B93117BEE3A4005317A8 /* FTItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1B93017BEE3A4005317A8 /* FTItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		316F664917AD6A9D00D7B683 /* FTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTMainViewController.m; sourceTree = "<group>"; };
 		31E1B92C17BEDD9D005317A8 /* FTListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListItem.h; sourceTree = "<group>"; };
 		31E1B92D17BEDD9D005317A8 /* FTListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTListItem.m; sourceTree = "<group>"; };
+		31E1B92F17BEE3A4005317A8 /* FTItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTItemViewController.h; sourceTree = "<group>"; };
+		31E1B93017BEE3A4005317A8 /* FTItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,13 +136,15 @@
 				3128217817AC9C9C0092E68D /* FTAppDelegate.m */,
 				316F664817AD6A9D00D7B683 /* FTMainViewController.h */,
 				316F664917AD6A9D00D7B683 /* FTMainViewController.m */,
-				3128219C17ACA1850092E68D /* Main.storyboard */,
 				3146C3E517BEBA9400E3844D /* FTListViewController.h */,
 				3146C3E617BEBA9400E3844D /* FTListViewController.m */,
+				31E1B92F17BEE3A4005317A8 /* FTItemViewController.h */,
+				31E1B93017BEE3A4005317A8 /* FTItemViewController.m */,
 				3146C3E217BEB5BB00E3844D /* FTList.h */,
 				3146C3E317BEB5BB00E3844D /* FTList.m */,
 				31E1B92C17BEDD9D005317A8 /* FTListItem.h */,
 				31E1B92D17BEDD9D005317A8 /* FTListItem.m */,
+				3128219C17ACA1850092E68D /* Main.storyboard */,
 				3128217D17AC9C9C0092E68D /* Images.xcassets */,
 				3128217A17AC9C9C0092E68D /* FreeTimes.xcdatamodeld */,
 				3128216F17AC9C9C0092E68D /* Supporting Files */,
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E1B92E17BEDD9D005317A8 /* FTListItem.m in Sources */,
+				31E1B93117BEE3A4005317A8 /* FTItemViewController.m in Sources */,
 				3128217917AC9C9C0092E68D /* FTAppDelegate.m in Sources */,
 				3128217C17AC9C9C0092E68D /* FreeTimes.xcdatamodeld in Sources */,
 				3146C3E717BEBA9400E3844D /* FTListViewController.m in Sources */,

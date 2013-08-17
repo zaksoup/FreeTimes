@@ -18,9 +18,18 @@
     return self;
 }
 
-- (NSUInteger)addItem:(FTListItem *)item {
-    [self.items addObject:item];
-    return [self.items indexOfObject:item];
+- (id)initWithGlyph:(int)glyph {
+    if ((self = [super init])) {
+        self.glyph = glyph;
+        self.items = [[NSMutableArray alloc] initWithCapacity:20];
+    }
+    
+    return self;
 }
+
+- (void)addItem:(FTListItem *)item {
+    [self.items addObject:item];
+}
+
 
 @end

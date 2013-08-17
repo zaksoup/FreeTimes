@@ -28,6 +28,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //self.lists = [NSArray alloc] ini
+    self.karma = [[FTList alloc] initWithGlyph:0];
+    self.listOne = [[FTList alloc] initWithGlyph:1];
+    self.listTwo = [[FTList alloc] initWithGlyph:2];
+    self.listThree = [[FTList alloc] initWithGlyph:3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +53,24 @@
     UIButton *button = (UIButton *)sender;
     controller.label = button.tag;
     controller.delegate = self;
+    //I'm sure this is not the best way to do this.
+    switch (button.tag) {
+        case 1:
+            controller.list = self.karma;
+            break;
+        case 2:
+            controller.list = self.listOne;
+            break;
+        case 3:
+            controller.list = self.listTwo;
+            break;
+        case 4:
+            controller.list = self.listThree;
+            break;
+        default:
+            controller.list = self.karma;
+            break;
+    }
 }
 
 - (void)listViewControllerDidDone:(FTListViewController *)controller {

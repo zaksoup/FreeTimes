@@ -11,9 +11,10 @@
 
 @interface FTList : NSObject
 
-- (NSUInteger)addItem:(FTListItem *)item;
+- (void)addItem:(FTListItem *)item;
+- (id)initWithGlyph:(int)glyph;
 
 @property (nonatomic, strong) NSMutableArray *items;
-@property (nonatomic, strong) NSNumber *glyph;
+@property (nonatomic, assign) int glyph;
 
 @end

@@ -66,18 +66,17 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
-}
+}*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.list.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,6 +87,16 @@
     // Configure the cell...
     
     return cell;
+}
+
+- (void)itemViewControllerDidCancel:(FTItemViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = segue.destinationViewController;
+    FTItemViewController *controller = (FTItemViewController *)navigationController.topViewController;
+    controller.delegate = self;
 }
 
 /*
