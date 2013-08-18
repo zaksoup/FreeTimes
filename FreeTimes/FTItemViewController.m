@@ -47,7 +47,7 @@
 - (void)valueChanged:(UISlider*)sender
 {
     NSUInteger index = (NSUInteger)(self.timeSlider.value + 0.5); // Round the number.
-    [self.timeSlider setValue:index animated:NO];
+    //[self.timeSlider setValue:index animated:NO];
     //NSLog(@"index: %i", index);
     
     NSNumber *number = [self.stops objectAtIndex:index]; // <-- This is the number you want.
