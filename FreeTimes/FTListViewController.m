@@ -95,6 +95,7 @@
 
 - (void)itemViewController:(FTItemViewController *)controller didFinishAddingItem:(FTListItem *)item {
     [self.list.items addObject:item];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)itemViewController:(FTItemViewController *)controller didFinishEditingItem:(FTListItem *)item {

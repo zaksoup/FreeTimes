@@ -25,10 +25,13 @@
 @property (strong, nonatomic) IBOutlet UITextField *itemName;
 
 //Time number is required for how I'm dealing with stops on the slider
-@property (strong, nonatomic) IBOutlet UISlider *itemTime;
+@property (strong, nonatomic) IBOutlet UISlider *timeSlider;
 @property (strong, nonatomic) NSNumber *timeNumber;
 
 @property (strong, nonatomic) IBOutlet UIButton *doneBarButton;
 @property (strong, nonatomic) FTListItem *itemToEdit;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (strong, nonatomic) NSMutableArray *stops;
 
 @end
