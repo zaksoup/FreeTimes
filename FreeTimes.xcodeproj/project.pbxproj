@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AFA27CE17C176DC000A5D0B /* CWClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA27CD17C176DC000A5D0B /* CWClockView.m */; };
+		1AFA27D117C17887000A5D0B /* CWPolarConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA27D017C17887000A5D0B /* CWPolarConverter.m */; };
 		3128216717AC9C9C0092E68D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3128216617AC9C9C0092E68D /* Foundation.framework */; };
 		3128216917AC9C9C0092E68D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3128216817AC9C9C0092E68D /* CoreGraphics.framework */; };
 		3128216B17AC9C9C0092E68D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3128216A17AC9C9C0092E68D /* UIKit.framework */; };
@@ -41,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AFA27CC17C176D3000A5D0B /* CWClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWClockView.h; sourceTree = "<group>"; };
+		1AFA27CD17C176DC000A5D0B /* CWClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWClockView.m; sourceTree = "<group>"; };
+		1AFA27CF17C17887000A5D0B /* CWPolarConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWPolarConverter.h; sourceTree = "<group>"; };
+		1AFA27D017C17887000A5D0B /* CWPolarConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWPolarConverter.m; sourceTree = "<group>"; };
 		3128216317AC9C9C0092E68D /* FreeTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3128216617AC9C9C0092E68D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3128216817AC9C9C0092E68D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +146,10 @@
 				3146C3E617BEBA9400E3844D /* FTListViewController.m */,
 				31E1B92F17BEE3A4005317A8 /* FTItemViewController.h */,
 				31E1B93017BEE3A4005317A8 /* FTItemViewController.m */,
+				1AFA27CC17C176D3000A5D0B /* CWClockView.h */,
+				1AFA27CD17C176DC000A5D0B /* CWClockView.m */,
+				1AFA27CF17C17887000A5D0B /* CWPolarConverter.h */,
+				1AFA27D017C17887000A5D0B /* CWPolarConverter.m */,
 				3146C3E217BEB5BB00E3844D /* FTList.h */,
 				3146C3E317BEB5BB00E3844D /* FTList.m */,
 				31E1B92C17BEDD9D005317A8 /* FTListItem.h */,
@@ -285,7 +295,9 @@
 				3146C3E717BEBA9400E3844D /* FTListViewController.m in Sources */,
 				3128217517AC9C9C0092E68D /* main.m in Sources */,
 				316F664A17AD6A9D00D7B683 /* FTMainViewController.m in Sources */,
+				1AFA27D117C17887000A5D0B /* CWPolarConverter.m in Sources */,
 				3146C3E417BEB5BB00E3844D /* FTList.m in Sources */,
+				1AFA27CE17C176DC000A5D0B /* CWClockView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

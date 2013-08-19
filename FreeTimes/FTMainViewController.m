@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -32,6 +32,12 @@
     self.listOne = [[FTList alloc] initWithGlyph:1];
     self.listTwo = [[FTList alloc] initWithGlyph:2];
     self.listThree = [[FTList alloc] initWithGlyph:3];
+    CGRect allbounds = [[UIScreen mainScreen] bounds];
+    CGRect clockbounds = CGRectMake(allbounds.origin.x, allbounds.origin.y + allbounds.size.height/3.0 - 120, allbounds.size.width, allbounds.size.width);
+    self.clock = [[CWClockView alloc] initWithFrame:clockbounds];
+    [self.clock setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:self.clock];
+
 }
 
 - (void)didReceiveMemoryWarning

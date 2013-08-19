@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FTListViewController.h"
 #import "FTList.h"
+#import "CWClockView.h"
 
 @interface FTMainViewController : UIViewController <FTListViewControllerDelegate>
 
@@ -22,5 +23,6 @@
 @property (nonatomic, strong) FTList *listOne;
 @property (nonatomic, strong) FTList *listTwo;
 @property (nonatomic, strong) FTList *listThree;
+@property (nonatomic, strong) CWClockView *clock;
 
 @end
