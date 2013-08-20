@@ -33,6 +33,9 @@
     return self;
 }
 
+
+
+
 - (void)updateMinuteLabel {
     [self.minuteLabel setText:[NSString stringWithFormat:@"%d",[self minute]]];
 }

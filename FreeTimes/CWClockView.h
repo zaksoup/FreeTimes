@@ -20,4 +20,5 @@
 - (void)pan:(UIGestureRecognizer *)sender;
 - (void)tap:(UIGestureRecognizer *)sender;
 
+
 @end
