@@ -46,6 +46,7 @@
 }
 - (void)tap:(UIGestureRecognizer *)sender {
     //do-something-here
+    [self.delegate clockViewWasTapped:sender];
 }
 
 - (void)handlePan:(CGPoint)loc {
