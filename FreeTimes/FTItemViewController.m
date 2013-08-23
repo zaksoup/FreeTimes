@@ -31,8 +31,11 @@
         self.doneBarButton.enabled = NO;
     } else {
         self.itemName.text = self.itemToEdit.name;
+        self.timeSlider.value = [self.itemToEdit.time floatValue]/5 - 1;
+        self.timeNumber = self.itemToEdit.time;
+        self.timeLabel.text = [NSString stringWithFormat:@"%@", self.itemToEdit.time];
     }
-    
+    self.timeNumber = @5;
     self.stops = [[NSMutableArray alloc] initWithCapacity:12];
     
     for (int i = 1; i <= 12; i++) {
@@ -60,6 +63,7 @@
     NSLog(@"number: %@", number);
     
     self.timeLabel.text = [NSString stringWithFormat:@"%@", number];
+    self.timeNumber = number;
 }
 
 - (void)didReceiveMemoryWarning

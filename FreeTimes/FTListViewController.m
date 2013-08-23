@@ -87,10 +87,12 @@
     // Configure the cell...
     
     UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    UILabel *time  = (UILabel *)[cell viewWithTag:1001];
     
     FTListItem *item = [self.list.items objectAtIndex:indexPath.row];
     
     label.text = item.name;
+    time.text  = [NSString stringWithFormat:@"%@", item.time];
     
     return cell;
 }
@@ -128,6 +130,7 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [self configureTextForCell:cell withFTListItem:item];
+    [self configureTimeForCell:cell withFTListItem:item];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -145,6 +148,10 @@
 - (void)configureTextForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
     UILabel *label = (UILabel *)[cell viewWithTag:1000];
     label.text = item.name;
+}
+- (void)configureTimeForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
+    UILabel *label = (UILabel *)[cell viewWithTag:1001];
+    label.text = [NSString stringWithFormat:@"%@", item.time];
 }
 
 - (void)configureActiveForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
