@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.itemName becomeFirstResponder];
     if (!self.itemToEdit) {
         self.doneBarButton.enabled = NO;
     }
@@ -42,6 +41,11 @@
     
     [self.timeSlider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.itemName becomeFirstResponder];
 }
 
 - (void)valueChanged:(UISlider*)sender
