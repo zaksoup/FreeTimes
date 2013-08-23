@@ -95,6 +95,16 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.list.items removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"editItemSegue" sender:[self.list.items objectAtIndex:indexPath.row]];
+}
+
 - (void)itemViewControllerDidCancel:(FTItemViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -113,7 +123,12 @@
 }
 
 - (void)itemViewController:(FTItemViewController *)controller didFinishEditingItem:(FTListItem *)item {
+    int index = [self.list.items indexOfObject:item];
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self configureTextForCell:cell withFTListItem:item];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -121,6 +136,10 @@
     FTItemViewController *controller = (FTItemViewController *)navigationController.topViewController;
     
     controller.delegate = self;
+    
+    if ([segue.identifier isEqualToString:@"editItemSegue"]) {
+        controller.itemToEdit = sender;
+    }
 }
 
 - (void)configureTextForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {

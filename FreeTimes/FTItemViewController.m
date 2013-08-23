@@ -29,6 +29,8 @@
 	// Do any additional setup after loading the view.
     if (!self.itemToEdit) {
         self.doneBarButton.enabled = NO;
+    } else {
+        self.itemName.text = self.itemToEdit.name;
     }
     
     self.stops = [[NSMutableArray alloc] initWithCapacity:12];
