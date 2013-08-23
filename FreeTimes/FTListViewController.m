@@ -109,6 +109,15 @@
     controller.delegate = self;
 }
 
+- (void)configureTextForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
+    UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    label.text = item.name;
+}
+
+- (void)configureActiveForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
+    
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
