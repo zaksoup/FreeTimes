@@ -81,10 +81,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+   //static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FTListItem"];
     
     // Configure the cell...
+    
+    UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    
+    FTListItem *item = [self.list.items objectAtIndex:indexPath.row];
+    
+    label.text = item.name;
     
     return cell;
 }
@@ -94,7 +100,15 @@
 }
 
 - (void)itemViewController:(FTItemViewController *)controller didFinishAddingItem:(FTListItem *)item {
+    int newRowIndex = [self.list.items count];
+    //NSLog(@"%d", newRowIndex);
     [self.list.items addObject:item];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:newRowIndex inSection:0];
+    
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
