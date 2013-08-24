@@ -11,8 +11,9 @@
 #import "FTList.h"
 #import "CWClockView.h"
 
-@interface FTMainViewController : UIViewController <FTListViewControllerDelegate>
+@interface FTMainViewController : UIViewController <FTListViewControllerDelegate, CWClockViewDelegate>
 
+- (void)clockViewWasTapped:(UIGestureRecognizer *)sender;
 - (void)listViewControllerDidDone:(FTListViewController *)controller;
 - (IBAction)test:(id)sender;
 

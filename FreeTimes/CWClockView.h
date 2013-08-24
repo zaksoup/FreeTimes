@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "CWPolarConverter.h"
 
+@protocol CWClockViewDelegate <NSObject>
+
+- (void)clockViewWasTapped:(UIGestureRecognizer *)sender;
+
+@end
+
 @interface CWClockView : UIView
 
-@property (nonatomic) int minute;
-@property (nonatomic) CWPolarPoint hand;
-@property (nonatomic) UILabel *minuteLabel;
+@property (nonatomic, assign) int minute;
+@property (nonatomic, assign) CWPolarPoint hand;
+@property (nonatomic, strong) UILabel *minuteLabel;
+@property (nonatomic, strong) id <CWClockViewDelegate> delegate;
 
 - (void)handlePan:(CGPoint)loc;
 - (void)updateMinuteLabel;

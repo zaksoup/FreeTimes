@@ -36,6 +36,7 @@
     CGRect clockbounds = CGRectMake(allbounds.origin.x, allbounds.origin.y + allbounds.size.height/3.0 - 120, allbounds.size.width, allbounds.size.width);
     self.clock = [[CWClockView alloc] initWithFrame:clockbounds];
     [self.clock setBackgroundColor:[UIColor whiteColor]];
+    self.clock.delegate = self;
     [self.view addSubview:self.clock];
 
 }
@@ -87,5 +88,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)clockViewWasTapped:(UIGestureRecognizer *)sender {
+    NSLog(@"tapped");
+}
 
 @end
