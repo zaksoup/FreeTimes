@@ -90,6 +90,9 @@
 
 - (void)clockViewWasTapped:(UIGestureRecognizer *)sender {
     NSLog(@"tapped");
+    if (self.clock.lockedAndFilling) {
+        self.clockCountingTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self.clock selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    }
 }
 
 @end

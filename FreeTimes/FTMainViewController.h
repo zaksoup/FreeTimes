@@ -26,4 +26,6 @@
 @property (nonatomic, strong) FTList *listThree;
 @property (nonatomic, strong) CWClockView *clock;
 
+@property (nonatomic, strong) NSTimer *clockCountingTimer;
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ABBA60817C9860E0025469F /* FTColorConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBA60717C9860E0025469F /* FTColorConverter.m */; };
 		1AFA27CE17C176DC000A5D0B /* CWClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA27CD17C176DC000A5D0B /* CWClockView.m */; };
 		1AFA27D117C17887000A5D0B /* CWPolarConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA27D017C17887000A5D0B /* CWPolarConverter.m */; };
 		3128216717AC9C9C0092E68D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3128216617AC9C9C0092E68D /* Foundation.framework */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ABBA60617C9860E0025469F /* FTColorConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTColorConverter.h; sourceTree = "<group>"; };
+		1ABBA60717C9860E0025469F /* FTColorConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTColorConverter.m; sourceTree = "<group>"; };
 		1AFA27CC17C176D3000A5D0B /* CWClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWClockView.h; sourceTree = "<group>"; };
 		1AFA27CD17C176DC000A5D0B /* CWClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWClockView.m; sourceTree = "<group>"; };
 		1AFA27CF17C17887000A5D0B /* CWPolarConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWPolarConverter.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				31E1B93017BEE3A4005317A8 /* FTItemViewController.m */,
 				1AFA27CC17C176D3000A5D0B /* CWClockView.h */,
 				1AFA27CD17C176DC000A5D0B /* CWClockView.m */,
+				1ABBA60617C9860E0025469F /* FTColorConverter.h */,
+				1ABBA60717C9860E0025469F /* FTColorConverter.m */,
 				1AFA27CF17C17887000A5D0B /* CWPolarConverter.h */,
 				1AFA27D017C17887000A5D0B /* CWPolarConverter.m */,
 				3146C3E217BEB5BB00E3844D /* FTList.h */,
@@ -288,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ABBA60817C9860E0025469F /* FTColorConverter.m in Sources */,
 				31E1B92E17BEDD9D005317A8 /* FTListItem.m in Sources */,
 				31E1B93117BEE3A4005317A8 /* FTItemViewController.m in Sources */,
 				3128217917AC9C9C0092E68D /* FTAppDelegate.m in Sources */,

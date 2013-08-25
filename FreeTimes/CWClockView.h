@@ -22,10 +22,15 @@
 @property (nonatomic, strong) UILabel *minuteLabel;
 @property (nonatomic, strong) id <CWClockViewDelegate> delegate;
 
+@property (nonatomic, assign) BOOL lockedAndFilling;
+@property (nonatomic, assign) double portionFilled;
+@property (nonatomic, strong) UIColor *countColor;
+
 - (void)handlePan:(CGPoint)loc;
 - (void)updateMinuteLabel;
 - (void)pan:(UIGestureRecognizer *)sender;
 - (void)tap:(UIGestureRecognizer *)sender;
+- (void)timerFired:(NSTimer *)t;
 
 
 @end

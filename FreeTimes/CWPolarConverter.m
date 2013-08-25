@@ -17,25 +17,25 @@
 }
 
 + (CWPolarPoint)cartesianToPolar:(CGPoint)cartesian origin:(CGPoint)origin {
-    double __x = cartesian.x-origin.x;
-    double __y = cartesian.y-origin.y;
-    double theta = atan2(__y, __x);
-    double radius = sqrt(__x*__x+__y*__y);
+    double x = cartesian.x-origin.x;
+    double y = cartesian.y-origin.y;
+    double theta = atan2(y, x);
+    double radius = sqrt(x*x+y*y);
     return CWPolarPointMake(theta, radius);
 }
 
 + (CGPoint)polarToCartesian:(CWPolarPoint)polar origin:(CGPoint)origin {
-    double __x = polar.radius*cos(polar.theta);
-    double __y = polar.radius*sin(polar.theta);
-    __x += origin.x;
-    __y += origin.y;
-    return CGPointMake(__x, __y);
+    double x = polar.radius*cos(polar.theta);
+    double y = polar.radius*sin(polar.theta);
+    x += origin.x;
+    y += origin.y;
+    return CGPointMake(x, y);
 }
 
 + (CGPoint)polarToCartesian:(CWPolarPoint)polar {
-    double __x = polar.radius*cos(polar.theta);
-    double __y = polar.radius*sin(polar.theta);
-    return CGPointMake(__x, __y);
+    double x = polar.radius*cos(polar.theta);
+    double y = polar.radius*sin(polar.theta);
+    return CGPointMake(x, y);
 }
 
 CWPolarPoint CWPolarPointMake (double theta, double radius) {
