@@ -27,11 +27,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.itemName becomeFirstResponder];
     if (!self.itemToEdit) {
         self.doneBarButton.enabled = NO;
+    } else {
+        self.itemName.text = self.itemToEdit.name;
+        self.timeSlider.value = [self.itemToEdit.time floatValue]/5 - 1;
+        self.timeNumber = self.itemToEdit.time;
+        self.timeLabel.text = [NSString stringWithFormat:@"%@", self.itemToEdit.time];
     }
-    
+    self.timeNumber = @5;
     self.stops = [[NSMutableArray alloc] initWithCapacity:12];
     
     for (int i = 1; i <= 12; i++) {
@@ -44,6 +48,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.itemName becomeFirstResponder];
+}
+
 - (void)valueChanged:(UISlider*)sender
 {
     NSUInteger index = (NSUInteger)(self.timeSlider.value + 0.5); // Round the number.
@@ -54,6 +63,7 @@
     NSLog(@"number: %@", number);
     
     self.timeLabel.text = [NSString stringWithFormat:@"%@", number];
+    self.timeNumber = number;
 }
 
 - (void)didReceiveMemoryWarning

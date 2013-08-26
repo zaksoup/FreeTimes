@@ -15,8 +15,8 @@
     return self;
 }
 
-- (void)toggleHidden {
-    self.hidden = !self.hidden;
+- (void)toggleActive {
+    self.active = !self.active;
 }
 
 @end

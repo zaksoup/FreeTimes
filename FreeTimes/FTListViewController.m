@@ -81,12 +81,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+   //static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FTListItem"];
     
     // Configure the cell...
     
+    UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    UILabel *time  = (UILabel *)[cell viewWithTag:1001];
+    
+    FTListItem *item = [self.list.items objectAtIndex:indexPath.row];
+    
+    label.text = item.name;
+    time.text  = [NSString stringWithFormat:@"%@", item.time];
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.list.items removeObjectAtIndex:indexPath.row];
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"editItemSegue" sender:[self.list.items objectAtIndex:indexPath.row]];
 }
 
 - (void)itemViewControllerDidCancel:(FTItemViewController *)controller {
@@ -94,12 +112,26 @@
 }
 
 - (void)itemViewController:(FTItemViewController *)controller didFinishAddingItem:(FTListItem *)item {
+    int newRowIndex = [self.list.items count];
+    //NSLog(@"%d", newRowIndex);
     [self.list.items addObject:item];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:newRowIndex inSection:0];
+    
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)itemViewController:(FTItemViewController *)controller didFinishEditingItem:(FTListItem *)item {
+    int index = [self.list.items indexOfObject:item];
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self configureTextForCell:cell withFTListItem:item];
+    [self configureTimeForCell:cell withFTListItem:item];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -107,6 +139,23 @@
     FTItemViewController *controller = (FTItemViewController *)navigationController.topViewController;
     
     controller.delegate = self;
+    
+    if ([segue.identifier isEqualToString:@"editItemSegue"]) {
+        controller.itemToEdit = sender;
+    }
+}
+
+- (void)configureTextForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
+    UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    label.text = item.name;
+}
+- (void)configureTimeForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
+    UILabel *label = (UILabel *)[cell viewWithTag:1001];
+    label.text = [NSString stringWithFormat:@"%@", item.time];
+}
+
+- (void)configureActiveForCell:(UITableViewCell *)cell withFTListItem:(FTListItem *)item {
+    
 }
 
 /*

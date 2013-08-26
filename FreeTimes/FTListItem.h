@@ -10,10 +10,10 @@
 
 @interface FTListItem : NSObject
 
-- (void)toggleHidden;
+- (void)toggleActive;
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) BOOL hidden;
+@property (nonatomic, assign) BOOL active;
 @property (nonatomic, strong) NSNumber *time;
 
 @end
