@@ -43,7 +43,7 @@ double secondsElapsed = 0;
 - (void)timerFired:(NSTimer *)t {
     secondsElapsed += 0.05;
     [self setNeedsDisplay];
-    NSLog(@"click");
+    //NSLog(@"click");
 }
 
 - (void)updateMinuteLabel {
@@ -70,7 +70,8 @@ double secondsElapsed = 0;
 - (void)handlePan:(CGPoint)loc {
     if (self.lockedAndFilling) return;
     _hand.theta = [CWPolarConverter cartesianToPolar:loc origin:[self center]].theta;
-    self.minute = [CWClockView thetaToMinute:_hand.theta];
+    self.minuteReal = [CWClockView thetaToMinute:_hand.theta];
+    self.minute = floor(self.minuteReal);
     if (self.minute < 5) self.minute = 5;
     [self setNeedsDisplay];
 }
@@ -113,6 +114,7 @@ double secondsElapsed = 0;
         }
         
     } else {
+        int thisminute = 0;
         for (int thisminute = 0; thisminute<[self minute]; thisminute++) {
             //draw each "petal"
             tempEnd = CWPolarPointMake([CWClockView minuteToTheta:thisminute], 20);
@@ -123,8 +125,20 @@ double secondsElapsed = 0;
             [face addLineToPoint:tempEndCart];
             [face moveToPoint:[face currentPoint]];
         }
+        /* this block was an attempt to have new lines grow in instead of appear instantly full as you drag
+         
+        thisminute++;
+        tempEnd = CWPolarPointMake([CWClockView minuteToTheta:thisminute], 20);
+        tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
+        [face moveToPoint:tempEndCart];
+        tempEnd.radius = 20+(_hand.radius-20)*(self.minuteReal-self.minute);
+        tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
+        [face addLineToPoint:tempEndCart];
+        [face moveToPoint:[face currentPoint]];
+         */
+        
     }
-        [face stroke];
+    [face stroke];
 //    CGPoint drawCenter;
 //    drawCenter.x = [self center].x-[self frame].origin.x;
 //    drawCenter.y = [self center].y- [self frame].origin.y;
@@ -143,7 +157,7 @@ double secondsElapsed = 0;
 
 + (double)minuteToTheta:(int)minute {
     double theta = minute;
-    theta -= 2;
+    theta -= 1.5;
     theta *= 6;
     theta += 15;
     theta *= -1;
@@ -151,7 +165,7 @@ double secondsElapsed = 0;
     return theta * M_PI/-180.0;
 }
 
-+ (int)thetaToMinute:(double)theta {
++ (double)thetaToMinute:(double)theta {
     theta = theta*-180.0/M_PI;
     if (theta > 90) theta -= 360.0;
     return (floor(((90-theta)-15)/6))+3;
