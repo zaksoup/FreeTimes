@@ -87,12 +87,14 @@ double secondsElapsed = 0;
     [face setLineWidth:7];
     CWPolarPoint tempEnd;
     CGPoint tempEndCart;
-    [self.countColor setFill];
-    [self.countColor setStroke];
+    UIBezierPath *appendPath = [UIBezierPath bezierPath];
+    [appendPath setLineWidth:7];
+    unsigned int currentColor = 0xfbfbfb-0x030906;
     
     if (self.lockedAndFilling) {
         int fullMinutesElapsed = ((int)(floor(secondsElapsed)))/60;
         double partminutesElapsed = (secondsElapsed/60.0)-fullMinutesElapsed;
+        currentColor -= 0x010302*fullMinutesElapsed;
         
         tempEnd = CWPolarPointMake([CWClockView minuteToTheta:fullMinutesElapsed], 20);
         tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
@@ -101,9 +103,13 @@ double secondsElapsed = 0;
         tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
         [face addLineToPoint:tempEndCart];
         [face moveToPoint:[face currentPoint]];
+        [UIColorFromHexCode(currentColor) setStroke];
+        [face stroke];
+        [appendPath appendPath:face];
         
         for (int thisminute = fullMinutesElapsed+1; thisminute<[self minute]; thisminute++) {
             //draw each "petal"
+            [face removeAllPoints];
             tempEnd = CWPolarPointMake([CWClockView minuteToTheta:thisminute], 20);
             tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
             [face moveToPoint:tempEndCart];
@@ -111,12 +117,17 @@ double secondsElapsed = 0;
             tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
             [face addLineToPoint:tempEndCart];
             [face moveToPoint:[face currentPoint]];
+            currentColor -= 0x010302;
+            [UIColorFromHexCode(currentColor) setStroke];
+            [face stroke];
+            [appendPath appendPath:face];
         }
         
     } else {
         int thisminute = 0;
         for (int thisminute = 0; thisminute<[self minute]; thisminute++) {
             //draw each "petal"
+            [face removeAllPoints];
             tempEnd = CWPolarPointMake([CWClockView minuteToTheta:thisminute], 20);
             tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
             [face moveToPoint:tempEndCart];
@@ -124,6 +135,10 @@ double secondsElapsed = 0;
             tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
             [face addLineToPoint:tempEndCart];
             [face moveToPoint:[face currentPoint]];
+            [UIColorFromHexCode(currentColor) setStroke];
+            [face stroke];
+            [appendPath appendPath:face];
+            currentColor -= 0x010302;
         }
         /* this block was an attempt to have new lines grow in instead of appear instantly full as you drag
          
