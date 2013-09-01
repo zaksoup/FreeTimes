@@ -29,6 +29,7 @@
 
 - (void)addItem:(FTListItem *)item {
     [self.items addObject:item];
+    
 }
 
 

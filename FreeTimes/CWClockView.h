@@ -18,6 +18,7 @@
 @interface CWClockView : UIView
 
 @property (nonatomic, assign) int minute;
+@property (nonatomic, assign) double secondsElapsed;
 @property (nonatomic, assign) double minuteReal;
 @property (nonatomic, assign) CWPolarPoint hand;
 @property (nonatomic, strong) UILabel *minuteLabel;

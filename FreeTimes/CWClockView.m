@@ -11,14 +11,13 @@
 
 @implementation CWClockView
 
-double secondsElapsed = 0;
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         [self setMinute:15];
+        self.secondsElapsed = 0;
         CWPolarPoint end;
         end.theta=0;
         end.radius=self.frame.size.width/2.0 - 30;
@@ -41,7 +40,7 @@ double secondsElapsed = 0;
 }
 
 - (void)timerFired:(NSTimer *)t {
-    secondsElapsed += 0.05;
+    self.secondsElapsed += 0.05;
     [self setNeedsDisplay];
     //NSLog(@"click");
 }
@@ -92,8 +91,8 @@ double secondsElapsed = 0;
     unsigned int currentColor = 0xfbfbfb-0x030906;
     
     if (self.lockedAndFilling) {
-        int fullMinutesElapsed = ((int)(floor(secondsElapsed)))/60;
-        double partminutesElapsed = (secondsElapsed/60.0)-fullMinutesElapsed;
+        int fullMinutesElapsed = ((int)(floor(self.secondsElapsed)))/60;
+        double partminutesElapsed = (self.secondsElapsed/60.0)-fullMinutesElapsed;
         currentColor -= 0x010302*fullMinutesElapsed;
         
         tempEnd = CWPolarPointMake([CWClockView minuteToTheta:fullMinutesElapsed], 20);
