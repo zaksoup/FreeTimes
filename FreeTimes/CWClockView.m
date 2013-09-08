@@ -93,7 +93,7 @@
     if (self.lockedAndFilling) {
         int fullMinutesElapsed = ((int)(floor(self.secondsElapsed)))/60;
         double partminutesElapsed = (self.secondsElapsed/60.0)-fullMinutesElapsed;
-        currentColor -= 0x010302*fullMinutesElapsed;
+        currentColor -= 0x010402*fullMinutesElapsed;
         
         tempEnd = CWPolarPointMake([CWClockView minuteToTheta:fullMinutesElapsed], 20);
         tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
@@ -116,7 +116,7 @@
             tempEndCart = [CWPolarConverter polarToCartesian:tempEnd origin:drawCenter];
             [face addLineToPoint:tempEndCart];
             [face moveToPoint:[face currentPoint]];
-            currentColor -= 0x010302;
+            currentColor -= 0x010402;
             [UIColorFromHexCode(currentColor) setStroke];
             [face stroke];
             [appendPath appendPath:face];
@@ -137,7 +137,7 @@
             [UIColorFromHexCode(currentColor) setStroke];
             [face stroke];
             [appendPath appendPath:face];
-            currentColor -= 0x010302;
+            currentColor -= 0x010402;
         }
         /* this block was an attempt to have new lines grow in instead of appear instantly full as you drag
          

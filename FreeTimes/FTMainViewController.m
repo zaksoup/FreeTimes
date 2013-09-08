@@ -167,6 +167,7 @@
             if ([selectedItem.time intValue] <= self.clock.minute-self.clock.secondsElapsed && selectedItem.active) [acceptableItems addObject:selectedItem];
         }
     }
+    if (acceptableItems.count == 0) return NULL;
     return [acceptableItems objectAtIndex:(arc4random() % [acceptableItems count])];
 }
 
