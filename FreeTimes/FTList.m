@@ -32,5 +32,9 @@
     
 }
 
+- (void)removeItem:(FTListItem *)item {
+    [self.items removeObject:item];
+}
+
 
 @end

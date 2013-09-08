@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "FTListItem.h"
 
+@class FTListItem;
+
 @interface FTList : NSObject
 
 - (void)addItem:(FTListItem *)item;
+- (void)removeItem:(FTListItem *)item;
 - (id)initWithGlyph:(int)glyph;
 
 @property (nonatomic, strong) NSMutableArray *items;

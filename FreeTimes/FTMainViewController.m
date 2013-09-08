@@ -40,6 +40,7 @@
     [self.clock setBackgroundColor:[UIColor whiteColor]];
     self.clock.delegate = self;
     [self.view addSubview:self.clock];
+    [self.view sendSubviewToBack:self.clock];
     
     //add swipe gesture to the thing
     UISwipeGestureRecognizer *swiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectedStringDidSwipeLeft:)];
@@ -53,6 +54,7 @@
 }
 
 - (void)selectedStringDidSwipeRight:(id)sender {
+    [self.activeTask.owner removeItem:self.activeTask];
     self.activeTask = [self getRandomAcceptableItemFromToggledLists];
     [self.selectedTaskLabel setText:self.activeTask.name];
     [self.activeTask toggleActive];

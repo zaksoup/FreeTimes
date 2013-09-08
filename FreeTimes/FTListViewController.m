@@ -114,6 +114,8 @@
 - (void)itemViewController:(FTItemViewController *)controller didFinishAddingItem:(FTListItem *)item {
     int newRowIndex = [self.list.items count];
     //NSLog(@"%d", newRowIndex);
+    item.owner = self.list;
+    item.active=true;
     [self.list.items addObject:item];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:newRowIndex inSection:0];

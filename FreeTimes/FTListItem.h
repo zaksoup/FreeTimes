@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "FTList.h"
 
+@class FTList;
+
 @interface FTListItem : NSObject
 
 - (void)toggleActive;
@@ -16,5 +18,6 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL active;
 @property (nonatomic, strong) NSNumber *time;
+@property (nonatomic, weak) FTList *owner;
 
 @end

@@ -88,7 +88,7 @@
     CGPoint tempEndCart;
     UIBezierPath *appendPath = [UIBezierPath bezierPath];
     [appendPath setLineWidth:7];
-    unsigned int currentColor = 0xfbfbfb-0x030906;
+    unsigned int currentColor = 0xfbfbfb-(0x010302*(61-[self minute]));
     
     if (self.lockedAndFilling) {
         int fullMinutesElapsed = ((int)(floor(self.secondsElapsed)))/60;
@@ -122,7 +122,7 @@
             [appendPath appendPath:face];
         }
         
-    } else {
+    } else { //time selection ongoing
         int thisminute = 0;
         for (int thisminute = 0; thisminute<[self minute]; thisminute++) {
             //draw each "petal"
