@@ -16,27 +16,30 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        [self setMinute:15];
-        self.secondsElapsed = 0;
-        CWPolarPoint end;
-        end.theta=0;
-        end.radius=self.frame.size.width/2.0 - 30;
-        [self setHand:end];
+        [self initializeWithTime:@15];
         CGRect minuteLabelBounds = CGRectMake(frame.origin.x, self.center.y-frame.origin.y-10, frame.size.width, 20);
         self.minuteLabel = [[UILabel alloc] initWithFrame:minuteLabelBounds];
         [self.minuteLabel setTextAlignment:NSTextAlignmentCenter];
-        [self addSubview:self.minuteLabel];
+        //[self addSubview:self.minuteLabel];
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:(self) action:@selector(tap:)];
         [self addGestureRecognizer:tapRecognizer];
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:(self) action:@selector(pan:)];
         [self addGestureRecognizer:panRecognizer];
         [self updateMinuteLabel];
-        
-        self.lockedAndFilling = NO;
-        self.portionFilled = 0.0;
-        self.countColor = UIColorFromHexCode(0xcb93db);
     }
     return self;
+}
+
+- (void)initializeWithTime:(NSNumber *)time {
+    [self setMinute:time.integerValue];
+    self.secondsElapsed = 0;
+    CWPolarPoint end;
+    end.theta=[CWClockView minuteToTheta:time.integerValue];
+    end.radius=self.frame.size.width/2.0 - 30;
+    [self setHand:end];
+    self.lockedAndFilling = NO;
+    self.portionFilled = 0.0;
+    self.countColor = UIColorFromHexCode(0xcb93db);
 }
 
 - (void)timerFired:(NSTimer *)t {
@@ -58,7 +61,7 @@
 }
 - (void)tap:(UIGestureRecognizer *)sender {
     if (self.lockedAndFilling) {
-        return; //later, handle this
+        self.lockedAndFilling = NO; //later, handle this
     } else {
         self.lockedAndFilling = YES;
     }

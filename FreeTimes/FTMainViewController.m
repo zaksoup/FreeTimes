@@ -43,28 +43,42 @@
     [self.view sendSubviewToBack:self.clock];
     
     //add swipe gesture to the thing
-    UISwipeGestureRecognizer *swiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectedStringDidSwipeLeft:)];
-    [swiper setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [swiper setNumberOfTouchesRequired:1];
-    [self.selectedTaskLabel addGestureRecognizer:swiper];
-    swiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selectedStringDidSwipeRight:)];
-    [swiper setDirection:UISwipeGestureRecognizerDirectionRight];
-    [swiper setNumberOfTouchesRequired:1];
+    UIPanGestureRecognizer *swiper = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(selectedStringDidPan:)];
+    
+    //self.selectedTaskLabel.userInteractionEnabled = self.clock.lockedAndFilling;
+    
     [self.selectedTaskLabel addGestureRecognizer:swiper];
 }
 
-- (void)selectedStringDidSwipeRight:(id)sender {
-    [self.activeTask.owner removeItem:self.activeTask];
-    self.activeTask = [self getRandomAcceptableItemFromToggledLists];
-    [self.selectedTaskLabel setText:self.activeTask.name];
-    [self.activeTask toggleActive];
+- (void)selectedStringDidPan:(id)sender {
+    
+    if ([sender state] == UIGestureRecognizerStateEnded) {
+        [self selectedStringDidFinishPanning];
+    } else {
+    
+    //NSLog(@"butts");
+        NSLog(@"%f", [sender translationInView:self.view].x);
+        self.selectedTaskLabel.frame = CGRectMake([sender translationInView:self.view].x, self.selectedTaskLabel.frame.origin.y, self.selectedTaskLabel.frame.size.width, self.selectedTaskLabel.frame.size.height);
+        
+    }
+//    [self.selectedTaskLabel setNeedsDisplay];
+//    [self.activeTask.owner removeItem:self.activeTask];
+//    self.activeTask = [self getRandomAcceptableItemFromToggledLists];
+//    [self.selectedTaskLabel setText:self.activeTask.name];
+//    [self.activeTask toggleActive];
 }
 
-- (void)selectedStringDidSwipeLeft:(id)sender {
-    [self.activeTask toggleActive];
-    self.activeTask = [self getRandomAcceptableItemFromToggledLists];
-    [self.selectedTaskLabel setText:self.activeTask.name];
-    [self.activeTask toggleActive];
+- (void)selectedStringDidFinishPanning {
+    if (self.selectedTaskLabel.frame.origin.x > 80) {
+        NSLog(@"Delete");
+        [self.clock initializeWithTime:@(self.clock.minute - self.clock.secondsElapsed/60)];
+        [self.clockCountingTimer invalidate];
+        [self.clock setNeedsDisplay];
+    } else if (self.selectedTaskLabel.frame.origin.x < -80) {
+        NSLog(@"Swap Task");
+    } else {
+        self.selectedTaskLabel.frame = CGRectMake(0, self.selectedTaskLabel.frame.origin.y, self.selectedTaskLabel.frame.size.width, self.selectedTaskLabel.frame.size.height);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -158,6 +172,7 @@
         [self.activeTask toggleActive];
         self.clockCountingTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self.clock selector:@selector(timerFired:) userInfo:nil repeats:YES];
     }
+    self.selectedTaskLabel.userInteractionEnabled=self.clock.lockedAndFilling;
 }
 
 - (FTListItem *)getRandomAcceptableItemFromToggledLists {

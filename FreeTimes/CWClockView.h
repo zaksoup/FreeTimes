@@ -33,6 +33,7 @@
 - (void)pan:(UIGestureRecognizer *)sender;
 - (void)tap:(UIGestureRecognizer *)sender;
 - (void)timerFired:(NSTimer *)t;
+- (void)initializeWithTime:(NSNumber *)time;
 
 
 @end
