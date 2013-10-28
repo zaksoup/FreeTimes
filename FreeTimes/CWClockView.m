@@ -8,6 +8,7 @@
 
 #import "CWClockView.h"
 #import "FTColorConverter.h"
+#import "FTMainViewController.h"
 
 @implementation CWClockView
 
@@ -60,13 +61,15 @@
     [self updateMinuteLabel];
 }
 - (void)tap:(UIGestureRecognizer *)sender {
+    FTListItem *randomItem;
     if (self.lockedAndFilling) {
         self.lockedAndFilling = NO; //later, handle this
     } else {
-        self.lockedAndFilling = YES;
+        randomItem = [self.delegate getRandomAcceptableItemFromToggledLists];
+        self.lockedAndFilling = randomItem != nil;
     }
     [self setNeedsDisplay];
-    [self.delegate clockViewWasTapped:sender];
+    [self.delegate clockViewWasTapped:randomItem];
 }
 
 - (void)handlePan:(CGPoint)loc {
@@ -126,7 +129,7 @@
         }
         
     } else { //time selection ongoing
-        int thisminute = 0;
+        //int thisminute = 0;
         for (int thisminute = 0; thisminute<[self minute]; thisminute++) {
             //draw each "petal"
             [face removeAllPoints];

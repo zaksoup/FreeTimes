@@ -11,10 +11,13 @@
 #import "FTList.h"
 #import "CWClockView.h"
 
+@class CWClockView;
+
 @interface FTMainViewController : UIViewController <FTListViewControllerDelegate, CWClockViewDelegate>
 
-- (void)clockViewWasTapped:(UIGestureRecognizer *)sender;
+- (void)clockViewWasTapped:(FTListItem *)sender;
 - (void)listViewControllerDidDone:(FTListViewController *)controller;
+- (FTListItem *)getRandomAcceptableItemFromToggledLists;
 - (IBAction)test:(id)sender;
 - (IBAction)toggleListOne:(id)sender;
 - (IBAction)toggleListTwo:(id)sender;

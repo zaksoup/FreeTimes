@@ -164,10 +164,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)clockViewWasTapped:(UIGestureRecognizer *)sender {
+- (void)clockViewWasTapped:(FTListItem *)randomItem {
     NSLog(@"tapped");
     if (self.clock.lockedAndFilling) {
-        self.activeTask = [self getRandomAcceptableItemFromToggledLists];
+        self.activeTask = randomItem;
         self.selectedTaskLabel.text = self.activeTask.name;
         [self.activeTask toggleActive];
         self.clockCountingTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self.clock selector:@selector(timerFired:) userInfo:nil repeats:YES];
@@ -182,8 +182,10 @@
             if ([selectedItem.time intValue] <= self.clock.minute-self.clock.secondsElapsed && selectedItem.active) [acceptableItems addObject:selectedItem];
         }
     }
-    if (acceptableItems.count == 0) return NULL;
-    return [acceptableItems objectAtIndex:(arc4random() % [acceptableItems count])];
+    if (acceptableItems.count == 0) return nil;
+    FTListItem *ret = [acceptableItems objectAtIndex:(arc4random() % [acceptableItems count])];
+    NSLog(@"called");
+    return ret;
 }
 
 @end
