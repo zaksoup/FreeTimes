@@ -74,7 +74,7 @@
 		3146C3E517BEBA9400E3844D /* FTListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListViewController.h; sourceTree = "<group>"; };
 		3146C3E617BEBA9400E3844D /* FTListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTListViewController.m; sourceTree = "<group>"; };
 		316F664817AD6A9D00D7B683 /* FTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTMainViewController.h; sourceTree = "<group>"; };
-		316F664917AD6A9D00D7B683 /* FTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTMainViewController.m; sourceTree = "<group>"; };
+		316F664917AD6A9D00D7B683 /* FTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = FTMainViewController.m; sourceTree = "<group>"; };
 		31E1B92C17BEDD9D005317A8 /* FTListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListItem.h; sourceTree = "<group>"; };
 		31E1B92D17BEDD9D005317A8 /* FTListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTListItem.m; sourceTree = "<group>"; };
 		31E1B92F17BEE3A4005317A8 /* FTItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTItemViewController.h; sourceTree = "<group>"; };
