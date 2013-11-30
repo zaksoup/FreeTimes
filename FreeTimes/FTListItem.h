@@ -14,10 +14,12 @@
 @interface FTListItem : NSObject
 
 - (void)toggleActive;
+- (NSComparisonResult)compares:(FTListItem *)other;
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL active;
 @property (nonatomic, strong) NSNumber *time;
 @property (nonatomic, weak) FTList *owner;
+@property (nonatomic, strong) NSNumber *score;
 
 @end

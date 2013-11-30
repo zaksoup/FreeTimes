@@ -19,4 +19,8 @@
     self.active = !self.active;
 }
 
+- (NSComparisonResult)compares:(FTListItem *)other {
+    return [self.score compare:other.score];
+}
+
 @end

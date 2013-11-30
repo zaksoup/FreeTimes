@@ -16,7 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        [self initializeWithTime:@15];
+        //[self initializeWithTime:@15];
         CGRect minuteLabelBounds = CGRectMake(frame.origin.x, self.center.y-frame.origin.y-10, frame.size.width, 20);
         self.minuteLabel = [[UILabel alloc] initWithFrame:minuteLabelBounds];
         [self.minuteLabel setTextAlignment:NSTextAlignmentCenter];
@@ -60,13 +60,14 @@
     [self updateMinuteLabel];
 }
 - (void)tap:(UIGestureRecognizer *)sender {
-    if (self.lockedAndFilling) {
+    /*if (self.lockedAndFilling) {
         self.lockedAndFilling = NO; //later, handle this
     } else {
         self.lockedAndFilling = YES;
-    }
+    }*/
     [self setNeedsDisplay];
     [self.delegate clockViewWasTapped:sender];
+    
 }
 
 - (void)handlePan:(CGPoint)loc {

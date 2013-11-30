@@ -15,7 +15,7 @@
 
 - (void)clockViewWasTapped:(UIGestureRecognizer *)sender;
 - (void)listViewControllerDidDone:(FTListViewController *)controller;
-- (IBAction)test:(id)sender;
+- (IBAction)goToList:(id)sender;
 - (IBAction)toggleListOne:(id)sender;
 - (IBAction)toggleListTwo:(id)sender;
 - (IBAction)toggleListThree:(id)sender;
@@ -32,6 +32,7 @@
 @property (nonatomic, strong) CWClockView *clock;
 @property (nonatomic, strong) IBOutlet UILabel *selectedTaskLabel;
 @property (nonatomic, strong) NSMutableArray *toggledLists;
+@property (nonatomic, strong) NSMutableArray *acceptableItemsThisTap;
 
 @property (nonatomic, strong) NSTimer *clockCountingTimer;
 
