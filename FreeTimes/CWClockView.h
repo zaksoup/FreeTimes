@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CWPolarConverter.h"
 
+@class FTMainViewController;
+
 @protocol CWClockViewDelegate <NSObject>
 
 - (void)clockViewWasTapped:(UIGestureRecognizer *)sender;
@@ -22,7 +24,7 @@
 @property (nonatomic, assign) double minuteReal;
 @property (nonatomic, assign) CWPolarPoint hand;
 @property (nonatomic, strong) UILabel *minuteLabel;
-@property (nonatomic, strong) id <CWClockViewDelegate> delegate;
+@property (nonatomic, strong) FTMainViewController <CWClockViewDelegate> *delegate;
 
 @property (nonatomic, assign) BOOL lockedAndFilling;
 @property (nonatomic, assign) double portionFilled;

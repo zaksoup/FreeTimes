@@ -8,6 +8,7 @@
 
 #import "CWClockView.h"
 #import "FTColorConverter.h"
+#import "FTMainViewController.h"
 
 @implementation CWClockView
 
@@ -67,7 +68,6 @@
     }*/
     [self setNeedsDisplay];
     [self.delegate clockViewWasTapped:sender];
-    
 }
 
 - (void)handlePan:(CGPoint)loc {
@@ -127,7 +127,7 @@
         }
         
     } else { //time selection ongoing
-        int thisminute = 0;
+        //int thisminute = 0;
         for (int thisminute = 0; thisminute<[self minute]; thisminute++) {
             //draw each "petal"
             [face removeAllPoints];
